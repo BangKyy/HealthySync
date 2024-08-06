@@ -6,16 +6,16 @@ import { parseStringify } from "../utils";
 
 export const createUser = async (user: CreateUserParams) => {
     try{
-        const newuser = await users.create(
+        const newUser = await users.create(
             ID.unique(),
             user.email,
             user.phone,
             undefined,
             user.name
         )
-        console.log({newuser});
+        console.log({newUser});
 
-        return parseStringify(newuser);
+        return parseStringify(newUser);
     } catch (err: any) {
         // check existing user
         if(err && err?.code === 409){
